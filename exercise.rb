@@ -19,4 +19,4 @@ new_dhh.add_events_to_hash(event5)
 new_dhh.add_events_to_hash(event6)
 new_dhh.add_events_to_hash(event7)
 
-puts "DHHs github score is #{new_dhh.total_points}"
+puts "DHH's github score is #{new_dhh.total_points}"
