@@ -7,4 +7,5 @@ class Event
     @event_type = event_type
     @score = score
   end
+  
 end
