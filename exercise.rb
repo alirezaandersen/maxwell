@@ -1,3 +1,4 @@
+require 'colorize'
 require_relative 'event'
 require_relative 'dhh'
 
@@ -19,4 +20,4 @@ new_dhh.add_events_to_hash(event5)
 new_dhh.add_events_to_hash(event6)
 new_dhh.add_events_to_hash(event7)
 
-puts "DHH's github score is #{new_dhh.total_points}"
+puts "DHH's github score is".yellow + " #{new_dhh.total_points}".light_blue
