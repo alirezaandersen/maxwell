@@ -1,4 +1,6 @@
-class DHH
+require_relative 'event'
+
+class Dhh
 
   attr_accessor :title
   attr_accessor :all_events
@@ -9,8 +11,11 @@ class DHH
   end
 
   def add_events_to_hash(event)
-   @all_events[event_type.name] += event.score
- end
+    @all_events[event.event_type] += event.score
+  end
 
+  def total_points
+    @all_events.values.reduce(0, :+)
+  end
 
 end
