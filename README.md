@@ -41,9 +41,10 @@ DHH's github score is xxx
 ```cd maxwell```
 
 ##### Install gems
-``` gem install colorize
-     gem install rest-client```
-
+```
+gem install colorize
+gem install rest-client
+```
 ##### Run script
 ``` ruby exercise.rb ```
 
