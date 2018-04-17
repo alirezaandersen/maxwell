@@ -32,16 +32,20 @@ $ ruby exercise.rb
 DHH's github score is xxx
 ```
 
-### See Solution 
+### See Solution
 
 ##### Clone repo
 ```https://github.com/alirezaandersen/maxwell```
 
-##### Get into file 
-``` cd maxwell```
+##### Get into file
+```cd maxwell```
 
-##### Run script 
+##### Install gems
+``` gem install colorize
+     gem install rest-client```
+
+##### Run script
 ``` ruby exercise.rb ```
 
 ##### Result output
-``` DHH's github score is 28 ```
+``` DHH's github score is 146 based on today's api April 16, 2018 ```
