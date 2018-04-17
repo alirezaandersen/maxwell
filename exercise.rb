@@ -28,4 +28,4 @@ class Exercise
 end
 
 event = Exercise.new('https://api.github.com/users/dhh/events/public')
-puts event.total_numbers_of_events
+puts  "DHH's github score is ".yellow + "#{event.total_numbers_of_events}".blue
