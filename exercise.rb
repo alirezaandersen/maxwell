@@ -1,23 +1,31 @@
 require 'colorize'
-require_relative 'event'
-require_relative 'dhh'
+require 'rest-client'
+require 'json'
+require 'pry'
 
-event1 = Event.new("IssueEvent", 7)
-event2 = Event.new("IssueCommentEvent", 6)
-event3 = Event.new("PushEvent", 5)
-event4 = Event.new("PullRequestReviewCommentEvent", 4)
-event5 = Event.new("WatchEvent", 3)
-event6 = Event.new("CreateEvent", 2)
-event7 = Event.new("AnyOtherEvent", 1)
+class Exercise
 
-new_dhh = Dhh.new("new Dhh")
+  EVENT_TYPE = { 'IssuesEvent' => 7,
+                 'IssueCommentEvent' => 6,
+                 'PushEvent' => 5,
+                 'PullRequestReviewCommentEvent' => 4,
+                 'WatchEvent' => 3,
+                 'CreateEvent' => 2 }
 
-new_dhh.add_events_to_hash(event1)
-new_dhh.add_events_to_hash(event2)
-new_dhh.add_events_to_hash(event3)
-new_dhh.add_events_to_hash(event4)
-new_dhh.add_events_to_hash(event5)
-new_dhh.add_events_to_hash(event6)
-new_dhh.add_events_to_hash(event7)
+  def initialize(url)
+    response = RestClient.get(url)
+    @hash = JSON.parse(response)
+  end
 
-puts "DHH's github score is".yellow + " #{new_dhh.total_points}".light_blue
+  def total_numbers_of_events
+    total = 0
+    @hash.each do |array_of_hash|
+      current_value = EVENT_TYPE.fetch(array_of_hash['type'],1)
+      total = total + current_value
+    end
+    return total
+  end
+end
+
+event = Exercise.new('https://api.github.com/users/dhh/events/public')
+puts event.total_numbers_of_events
